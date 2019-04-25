@@ -3,12 +3,14 @@ const mainController = ($scope, $http, $window) => {
   $scope.user = '';
   $scope.formCategory = '';
   $scope.lists = [];
+  $scope.list = [];
 
   $scope.getTodos = () => {
     $http
       .get('/api/list')
       .then(data => {
         $scope.list = data.data;
+        $scope.getLists();
         $scope.getFilteredTodos();
       })
       .catch(data => {
@@ -126,7 +128,7 @@ const mainController = ($scope, $http, $window) => {
   };
 
   $scope.getCurrentUser();
-  $scope.getLists();
+  //$scope.getLists();
   $scope.getTodos();
 };
 

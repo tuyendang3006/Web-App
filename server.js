@@ -8,6 +8,7 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const url ='mongodb+srv://tuyen1234:tuyen1234@cluster0-hiey4.mongodb.net/Poly?retryWrites=true';
+//const url = process.env.MONGODB_URI;
 const localurl = 'mongodb://localhost/todo';
 
 app.use(express.static(path.join(__dirname, '/public')));
