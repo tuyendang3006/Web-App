@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body ng-controller="mainController" class="m-4" background=image/background.jpg>
+    <button class="btn btn-link float-right" ng-click="logout()">
+      <img src="image/logout.png" title="Log out" width="45" height="45"/> </button>
+    <h2 class="text-weight-bold-primary text-center">Todo list</h2>
+    <span ng-bind="user" class="font-weight-bold font-italic"></span>
+    <hr />
+    <form>
+      <div class="form-group row">
+        <label for="addCategory" class="col-sm-10 col-form-label">Ajouter une catégorie de liste</label>
+        <div class="col-sm-4">
+          <input id="addCategory" ng-model="formCategory" type="text" class="form-control"/>
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" ng-click="createCategory()" class="btn btn-link"> Add </button>
+        </div>
+      </div>
+    </form>
+    <br />
+    <select id="categories" ng-model="formData.category" class="custom-select col-sm-3" ng-change="getFilteredTodos()">
+      <option value="" disabled selected>Choisir une liste de tâche: </option>
+      <option ng-repeat="l in lists" value="{{ l.category }}">{{ l.category}}</option>
+    </select>
+    <div id="todo-list">
+      <ul style="list-style-type: none; margin: 0; padding: 0;">
+        <li ng-repeat="x in filteredList track by $index">
+          <button ng-click="checkTodo(x._id)" class="btn btn-link"> ✔ </button>
+          <button ng-click="deleteTodo(x._id)" class="btn btn-link"> &times;</button>
+          <span style="color: rgba(0, 0, 0, 0.5)" class="small">({{ x.date }})</span>
+          <input type="text" ng-model="x.todo" class="editable" ng-blur="updateTodo(x)"
+            ng-style="x.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} : {}"/>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control col-sm-3 mt-3" type="text" placeholder="Écrire" ng-model="formData.todo"/>
+        <button type="submit" ng-click="createTodo(); getLists()" class="btn btn-link mt-3"> Add </button>
+      </form>
+    </div>
+  </body>
+</html>

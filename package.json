@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "todo app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.4.17",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "npm": "^6.8.0"
+  }
+}
