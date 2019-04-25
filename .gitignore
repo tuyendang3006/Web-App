@@ -1,2 +1,2 @@
-#GitIgnoreFile
+.gitignore
 node_modules/.vcode/.env
