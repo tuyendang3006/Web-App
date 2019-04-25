@@ -1,2 +1,1 @@
-.gitignore
-node_modules/.vcode/.env
+.vscode/node_modules/.env
