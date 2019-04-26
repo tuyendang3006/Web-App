@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
@@ -7,10 +7,10 @@ const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-//const url ='mongodb+srv://tuyen1234:tuyen1234@cluster0-hiey4.mongodb.net/Poly?retryWrites=true';
-const url = process.env.MONGODB_URI||'mongodb+srv://tuyen1234:tuyen1234@cluster0-hiey4.mongodb.net/Poly?retryWrites=true';
-// const localurl = 'mongodb://localhost/todo';
-const localurl = 'https://jesmine-webapp.herokuapp.com/';
+const url ='mongodb+srv://tuyen1234:tuyen1234@cluster0-hiey4.mongodb.net/Poly?retryWrites=true';
+//const url = process.env.MONGODB_URI||'mongodb+srv://tuyen1234:tuyen1234@cluster0-hiey4.mongodb.net/Poly?retryWrites=true';
+const localurl = 'mongodb://localhost/todo';
+//const localurl = 'https://jesmine-webapp.herokuapp.com/';
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('dev'));
